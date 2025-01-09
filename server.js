@@ -11,7 +11,10 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(cors());
+// Enable CORS for the Netlify domain
+app.use(cors({
+  origin: 'https://grand-biscotti-e526b5.netlify.app', // Allow requests from your Netlify frontend
+}));
 app.use(express.json());  
 
 connectDB();
